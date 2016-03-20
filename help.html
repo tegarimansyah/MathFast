@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="utf-8">
+        <title>MathFast v1.0 | Help</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="MathFast, belajar matematika dengan cepat dan menyenangkan">
+    <meta name="author" content="Tegar Imansyah">
+    
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/bootstrap-responsive.css" rel="stylesheet">
+        
+        <style>
+    body {
+      height:750px;
+       background: #020031; /* Old browsers */
+        background: -moz-linear-gradient(45deg,  #020031 0%, #6d3353 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#020031), color-stop(100%,#6d3353)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(45deg,  #020031 0%,#6d3353 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(45deg,  #020031 0%,#6d3353 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(45deg,  #020031 0%,#6d3353 100%); /* IE10+ */
+        background: linear-gradient(45deg,  #020031 0%,#6d3353 100%); /* W3C */
+    }
+    .navbar {
+      margin-bottom:0;
+    }
+
+    
+    .hero-unit {
+      color:#fff;
+      padding-bottom:0;
+      text-align:center; 
+      background-color:transparent;
+    }
+    
+    .hero-unit h1 {
+      font-size: 120px;
+      font-weight: bold;
+      letter-spacing: -1px;
+        line-height: 1;
+    }
+    
+    .hero-unit p {
+      font-size: 25px;
+      font-weight: 200;
+      line-height: 1.25;
+      margin-bottom:30px;
+    }
+    .btn {
+      padding: 19px 23px;
+    }
+    ul.options {
+      list-style:none;
+      margin:0;
+      padding:0;
+    }
+    ul.options li {
+      display:inline;
+      margin:20px;
+      font-size:13px;
+      color:#666;
+    }
+    </style>
+    </head>
+    <body>
+    <div class="navbar">
+          <div class="navbar-inner">
+            <a class="brand" href="index.html">MathFast</a>
+            <ul class="nav">
+              <li class="active"><a href="index.html">Home</a></li>
+        <li class="dropdown">
+                      <a href="#" id="drop2" role="button" class="dropdown-toggle" data-toggle="dropdown">Play Game<b class="caret"></b></a>
+                      <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Sangat Mudah</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Mudah</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Sedang</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Susah</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Penjumlahan</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Pengurangan</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Perkalian</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Pembagian</a></li>
+                      </ul>
+                    </li>
+              <li><a href="#myModal" role="button" data-toggle="modal">About</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="hero-unit">
+          <h1>Panduan Bermain</h1>
+          <br>
+          <p>Ketika kamu mulai bermain, kamu akan menjumpai halaman seperti ini:</p>
+          <img src="img/help1.png">
+          <p>Kamu akan diberikan waktu 60 detik untuk menghitung pertanyaan yang diberikan. Cara menjawabnya bisa dengan mengetikan langsung menggunakan keyboard lalu menekan enter (cocok untuk komputer/laptop) atau menekan tombol yang disediakan (cocok untuk smartphone/tablet, aku harap).</p>
+          <p>Setiap kamu berhasil menjawab dengan benar, maka kamu akan mendapat point 100. Tetapi jika salah, kamu akan mendapat point -25</p>
+          <img src="img/help2.png">
+          <img src="img/help3.png">
+          <p>Ayo asah kemampuan menghitungmu! Dan bagikan kepada teman yang lain (masih dalam perencanaa untuk mengembangkannya, berminat? Email aja ke <a href="mailto:tegar.projects@gmail.com">tegar.projects@gmail.com</a>
+          <ul class="options">
+            <li><a href="donations.html">Donatios</a></li>
+            <li><a href="help.html">Help</a></li>
+            <li><a href="tc.html">Terms And Conditions</a></li>
+            <li>Version 1.0</li>
+          </ul>
+        </div>
+        <!-- Modal -->
+        <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">About</h3>
+          </div>
+          <div class="modal-body">
+            <p><b>MathFast!<b> by Tegar Imansyah</p>
+            <p>My first program with Bootstrap and Javascript at 2013. Now you can check it on github</p>
+          </div>
+        </div>
+        <script src="js/jquery.js"></script>
+        <script src="js/bootstrap-dropdown.js"></script>
+        <script src="js/bootstrap-modal.js"></script>
+        <script>
+    $('.dropdown-toggle').dropdown();
+        </script>
+    </body>
+</html>

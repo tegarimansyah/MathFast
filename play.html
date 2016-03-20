@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    	<meta charset="utf-8">
+        <title>MathFast v1.0</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="MathFast, belajar matematika dengan cepat dan menyenangkan">
+	    <meta name="author" content="Tegar Imansyah">
+    
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/bootstrap-responsive.css" rel="stylesheet">
+
+        
+        <style>
+		body {
+	  		min-height:725px;
+			padding-bottom:10px;
+			 background: #020031; /* Old browsers */
+			  background: -moz-linear-gradient(45deg,  #020031 0%, #6d3353 100%); /* FF3.6+ */
+			  background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#020031), color-stop(100%,#6d3353)); /* Chrome,Safari4+ */
+			  background: -webkit-linear-gradient(45deg,  #020031 0%,#6d3353 100%); /* Chrome10+,Safari5.1+ */
+			  background: -o-linear-gradient(45deg,  #020031 0%,#6d3353 100%); /* Opera 11.10+ */
+			  background: -ms-linear-gradient(45deg,  #020031 0%,#6d3353 100%); /* IE10+ */
+			  background: linear-gradient(45deg,  #020031 0%,#6d3353 100%); /* W3C */
+		}
+		
+		hr.soften {
+			height: 1px;
+			margin: 40px 0;
+			background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+			background-image: -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+			background-image: -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+			background-image: -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+			border: 0;
+		}
+		
+		.navbar {
+			margin-bottom:0;
+		}
+
+		
+		.game {
+			margin-top: 20px;
+			padding: 35px 50px 5px 50px;
+			opacity:0.9;	
+			background:#fff;
+			min-height:400px;
+		}
+		
+		.game .controls input, #skor, #timer {
+			height:35px;
+			font-size:24px;
+			text-align:center;
+		}
+		
+		.game .numpad {
+			text-align:center;
+		}
+		
+		.game .numpad button,
+		.game .numpad input {
+			padding: 20px 30px;
+			margin: 10px;
+		}
+		</style>
+    </head>
+    <body>
+	 	<div class="navbar">
+          <div class="navbar-inner">
+            <a class="brand" href="index.html">MathFast</a>
+            <ul class="nav">
+              <li><a href="index.html">Home</a></li>
+              <li class="active"><a href="play.html">Play Game</a></li>
+              <li><a href="about.html">About</a></li>
+            </ul>
+          </div>
+        </div>
+        
+      <div class="container">
+          <div class="game">
+          <form action="javascript:void(0);">
+          		<div class="container-fluid">
+                  <div class="row-fluid">
+                    <div class="span6" id="info">
+                        <div class="alert alert-block alert-info">
+                          <h4><i class="icon-info-sign"></i> Selamat Bermain!</h4>
+							Silahkan jawab dengan benar. Satu soal benar mendapat nilai 100, tapi jika salah akan berkurang 25. Semoga beruntung!!
+                        </div>
+                    </div>
+                    <div class="span3">
+	                  <input class="span5" style="height:70px;width:200px;" id="timer" type="text" disabled="true" name="timer" value="0">
+                    </div>
+		            <div class="span3">
+	                  <input class="span5" style="height:70px;width:200px;" id="skor" type="text" disabled="true" name="skor" value="0">
+                    </div>
+                  </div>
+                </div>
+                
+                <hr class="soften">
+                
+                <div class="controls controls-row">
+                  <input class="span3" name="angka1" type="text" disabled="true" readonly="readonly" value="">
+                  <input class="span1" name="operator" type="text" disabled="true" readonly value="+">
+                  <input class="span3" name="angka2" type="text" disabled="true" readonly="readonly" value="">
+                  <input class="span1" type="text" disabled="true" value="=">
+                  <input class="span3" name="jawabannya" id="jawabannya" type="text" placeholder="Jawabannya">
+                </div>
+                <div class="numpad">
+				  <button class="btn btn-large btn-primary" type="button">1</button>
+                  <button class="btn btn-large btn-primary" type="button">2</button>
+                  <button class="btn btn-large btn-primary" type="button">3</button>
+                  <div class="clearfix"></div>
+				  <button class="btn btn-large btn-primary" type="button">4</button>
+                  <button class="btn btn-large btn-primary" type="button">5</button>
+                  <button class="btn btn-large btn-primary" type="button">6</button>
+                  <div class="clearfix"></div>
+				  <button class="btn btn-large btn-primary" type="button">7</button>
+                  <button class="btn btn-large btn-primary" type="button">8</button>
+                  <button class="btn btn-large btn-primary" type="button">9</button>
+                  <div class="clearfix"></div>
+				  <button class="btn btn-large btn-primary" type="button">Hapus</button>
+                  <button class="btn btn-large btn-primary" type="button">0</button>
+				  <input class="btn btn-large btn-primary" type="submit" value="Jawab" onclick="cekjawaban()">
+                  <div class="clearfix">
+                  </div>  
+          </form>
+                </div>
+          </div>
+      </div>
+      <script src="js/jquery.js"></script>
+      <script type="text/javascript">
+	  $(".numpad button").click(function () {
+      var text = $(this).text();
+		  $("input#jawabannya").val(function( index, val ) {
+			  if (text == "Hapus") { return ""; }
+			  else {
+				return val + text;
+				}
+			});
+      });
+      </script>
+      <!-- Alur Program -->
+	  <script type="text/javascript">
+	  var angkapertama;
+	  var angkakedua;
+	  var jawaban;
+	  var jawabandia;
+	  var skor=0;
+	  
+	function randomnumber() {
+		angkapertama = Math.round(Math.random()*100+1);
+		angkakedua = Math.round(Math.random()*100+1);
+		document.forms[0].angka1.value=(angkapertama);
+		document.forms[0].angka2.value=(angkakedua);
+		jawaban = angkapertama+angkakedua;
+		}
+
+	  function disubmit() {
+		  jawabandia = $("#jawabannya").val();
+		  return jawabandia;
+		  }
+	  
+	  function cekjawaban() {
+		if (jawaban == disubmit()) {
+			skor=skor+100;
+			$("#info").html(function() { return '<div class="alert alert-block alert-success"><h4>Selamat!!</h4>Anda Benar! Point anda bertambah 100! <img class="pull-right" src="img/benar.gif"></div>'; });
+			}
+		else {
+			skor=skor-25;
+			$("#info").html(function() { return '<div class="alert alert-block alert-danger"><h4>Aduuh!!</h4>Anda Salah! Point anda berkurang 25! <img class="pull-right" src="img/salah.gif"></div>'; });
+			}	
+	    document.forms[0].skor.value=skor;			
+		awal();
+		}
+
+	  var c=60;
+	  var t;
+
+	  function timedCount()
+		{
+		if (c > -1 ) {
+			document.getElementById('timer').value=c;
+			c=c-1;
+			t=setTimeout(function(){timedCount()},1000);
+			}
+		else {
+			stopgame();
+			}
+		}
+	  function stopgame() {
+		alert('Skor kamu '+skor);  
+	  }
+	  
+	  function formfocus() {
+      document.getElementById('jawabannya').focus();
+	  }
+	  
+	  function awal() {
+		  randomnumber();
+		  var text = $(this).text();
+		  $("input#jawabannya").val(function( index, val ) {return ""; });
+		  
+		}
+	   onload=timedCount(),randomnumber(),formfocus();
+      </script>
+    </body>
+</html>
